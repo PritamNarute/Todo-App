@@ -41,7 +41,10 @@ function App() {
               Add New
           </button>
           {
-            todoItemForm && <NewTodoForm addNewTodoItem={addNewTodoItem} /> 
+            todoItemForm && 
+            <NewTodoForm 
+              addNewTodoItem={addNewTodoItem}
+            /> 
           }
         </div>
       </div>
