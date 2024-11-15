@@ -10,6 +10,7 @@ function TodoTable(props) {
                 <th scope='col'> Number </th>
                 <th scope='col'> Task </th>
                 <th scope='col'> Duration </th>
+                <th scope='col'> Actions </th>
               </tr>
             </thead>
             <tbody>
@@ -19,6 +20,8 @@ function TodoTable(props) {
                     rowNumber={index+1}
                     rowTask={todo.rowTask}
                     rowDuration={todo.rowDuration}
+                    deleteTodoItem={props.deleteTodoItem}
+                    index={index}
                 />
               ))}
             </tbody>
