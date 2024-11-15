@@ -23,11 +23,18 @@ function App() {
     setTodoItemForm(false);
   }
 
-  const showTodoItemForm = () => {
-    setTodoItemForm(!todoItemForm);
+  const deleteTodoItem = (index) => {
+    const filteredTodos = [];
+
+    for( var i = 0; i<todos.length; i++ ) {
+      if(i !== index) {
+        filteredTodos.push(todos[i]);
+      }
+    }
+
+    setTodos(filteredTodos);
   }
 
-  // console.log("from App");
 
   return (
     <div className="mt-5 container">
@@ -36,12 +43,18 @@ function App() {
           <h1>Your Todo's</h1>
         </div>
         <div className="card-body">
-          <TodoTable todos={todos} />
-          <button className="btn btn-primary" onClick={showTodoItemForm}>
+          <TodoTable
+            todos={todos} 
+            deleteTodoItem={deleteTodoItem}
+          />
+          <button className="btn btn-primary" onClick={() => setTodoItemForm(!todoItemForm)}>
               Add New
           </button>
           {
-            todoItemForm && <NewTodoForm addNewTodoItem={addNewTodoItem} /> 
+            todoItemForm && 
+            <NewTodoForm 
+              addNewTodoItem={addNewTodoItem} 
+            /> 
           }
         </div>
       </div>

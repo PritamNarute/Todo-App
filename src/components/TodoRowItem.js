@@ -7,6 +7,14 @@ function TodoRowItem(props) {
             <th scope='row'> {props.rowNumber} </th>
             <td> {props.rowTask} </td>
             <td> {props.rowDuration} Minutes</td>
+            <td>
+                <button 
+                    className="btn btn-primary"
+                    onClick={() => props.deleteTodoItem(props.index)}
+                > 
+                    Delete 
+                </button>
+            </td>
         </tr>
     )
 }
