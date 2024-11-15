@@ -7,7 +7,7 @@ function NewTodoForm (props) {
 
     const submitTodo  = () => {
         if(task !== '' && duration !== '') {
-            props.addNewTodo(task, duration);
+            props.addNewTodoItem(task, duration);
             setTask('');
             setDuration('');
         }

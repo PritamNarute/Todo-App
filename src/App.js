@@ -11,13 +11,20 @@ function App() {
     {rowTask: "Full Body Workout", rowDuration: "50"}
   ]);
 
-  const addNewTodo = (task, duration) => {
+  const [todoItemForm, setTodoItemForm] = useState(false);
+
+  const addNewTodoItem = (task, duration) => {
     const newTodo = {
       rowTask: task,
       rowDuration: duration
     };
 
     setTodos(todos => [...todos, newTodo]);
+    setTodoItemForm(false);
+  }
+
+  const showTodoItemForm = () => {
+    setTodoItemForm(!todoItemForm);
   }
 
   // console.log("from App");
@@ -30,10 +37,12 @@ function App() {
         </div>
         <div className="card-body">
           <TodoTable todos={todos} />
-          <button className="btn btn-primary" onClick={addNewTodo}>
+          <button className="btn btn-primary" onClick={showTodoItemForm}>
               Add New
           </button>
-          <NewTodoForm addNewTodo={addNewTodo} /> 
+          {
+            todoItemForm && <NewTodoForm addNewTodoItem={addNewTodoItem} /> 
+          }
         </div>
       </div>
     </div>
